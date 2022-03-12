@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+.header {
+  margin: 5vh 10vw 15vh 10vw;
+  height: 10vh;
+  border-bottom: 1px solid #b3b3b3;
+}
+.header #title {
+  margin: 0;
+  display: inline-block;
+  font-family: sans-serif;
+}
+.header a {
+  text-decoration: none;
+  float: right;
+  margin: 5px;
+  border: 1px solid #adadad;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.header a:hover {
+  filter: brightness(90%);
+}
+.header #add {
+  padding: 8px 12px;
+  background-color: #c4c4c4;
+}
+.header #delete {
+  padding: 8px 16px;
+  background-color: #cf2727;
+}
+
+.footer {
+  width: 75%;
+  margin: 5vh auto;
+  text-align: center;
+  border-top: 1px solid #b3b3b3;
+  font-family: "Bebas Neue", cursive, sans-serif;
+  letter-spacing: 1.5px;
+}
+.footer p {
+  font-size: 12px;
+}
+
+.logo {
+  width: 2rem;
+  height: auto;
+  border-radius: 50%;
+  border: 1px solid black;
+  opacity: 50%;
+  background-color: black;
+  -webkit-animation: anime-rotate 10s linear infinite;
+          animation: anime-rotate 10s linear infinite;
+  display: block;
+  margin: -1em auto;
+}
+.logo:hover {
+  background-color: #cf2727;
+  border: 1px solid red;
+}
+
+@-webkit-keyframes anime-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes anime-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Media Query: Large Smartphone */
+@media screen and (max-width: 700px) {
+  .header {
+    width: 75%;
+    height: 5vh;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .header a {
+    font-size: 20px;
+  }
+  .header #add {
+    padding: 1px 1px;
+    font-size: 10px;
+  }
+  .header #delete {
+    padding: 1px 1px;
+    font-size: 10px;
+  }
+}/*# sourceMappingURL=styles.css.map */
