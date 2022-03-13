@@ -11,7 +11,7 @@
         font-family: sans-serif;
     }
 
-    a{
+    a, button{
         text-decoration: none;
         float: right;
         margin : 5px;
@@ -36,6 +36,111 @@
         padding: 8px 16px;
         background-color: rgb(207, 39, 39);
     }
+
+    #save{
+        padding: 10px 16px;
+        background-color: rgb(31, 102, 255);
+    }
+
+    #back{
+        padding: 8px 16px;
+        background-color: rgb(207, 39, 39);
+    }
+}
+
+.group{
+    display: inline-block;
+    flex-direction: column;
+    
+  label{
+    font-size: 0.9rem;
+  }
+  input{
+    border: 1px solid #ccc;
+    transition: 0.2s;
+    border-radius: 2px;
+    margin: 1rem 0 0.6rem 1rem;
+    
+    &:focus{
+      outline: none;
+      transition: all 0.2s ease-in-out;
+      transform: scale(1.1);
+  
+      &:valid{
+        border: 1px solid rgb(10, 168, 10);
+      }
+  
+      &:invalid{
+        border: 1px solid rgb(207, 39, 39);
+      }
+          
+    }
+  }
+}
+
+.add-product{
+    margin: -13vh 0 0 10vw;
+    letter-spacing: 1px;
+  
+.form-group{
+    display: inline-block;
+    width: 30%;
+    height: 50px;
+
+    .switch{
+        label{
+            margin-right: 1em;
+        }
+        .select-product {
+            margin-top: 1em;
+            font-size: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    }
+
+    .dvd-input{
+        display: flex;
+        flex-direction: column;
+
+        .warning-label{
+            font-weight: bold;
+            font-size: 0.7rem;
+            margin-top: 2rem;
+        }
+    }
+
+    .book-input{
+        display: flex;
+        flex-direction: column;
+
+        .warning-label{
+            font-weight: bold;
+            font-size: 0.7rem;
+            margin: 1rem 0 1rem 0;
+        }
+    }
+
+    .dimensions{
+        display: flex;
+        flex-direction: column;
+
+        .dimensions-attribute{
+            .form-input{
+                width: 70px;
+            }
+        }
+
+        .warning-label{
+            font-weight: bold;
+            font-size: 0.7rem;
+            margin: 1rem 0 1rem 0;
+        }
+     }
+    }
+}
+  
+#DVD, #Furniture, #Book{
+    display: none;
 }
   
 
@@ -50,10 +155,8 @@
       p{
           font-size: 12px;
         }
-    
-    }
-
-    .logo{
+        
+    svg{
         width: 2rem;
         height: auto;
         border-radius: 50%;
@@ -61,8 +164,7 @@
         opacity: 50%;
         background-color: black;
         animation: anime-rotate 10s linear infinite;
-        display: block;
-        margin: -1em auto;
+        margin: auto;
 
         &:hover{
             background-color: rgb(207, 39, 39);
@@ -78,6 +180,8 @@
             transform: rotate(360deg);
         }
     }
+}
+
     
 /* Media Query: Large Smartphone */
 @media screen and (max-width: 700px){
@@ -87,7 +191,7 @@
         h1{
             font-size: 20px;
         }
-        a{
+        a, button{
             font-size: 20px;
         }
 
@@ -95,9 +199,18 @@
             padding: 1px 1px;
             font-size: 10px;
         }
-        #delete{
+        #delete{ 
             padding: 1px 1px;
             font-size: 10px;
         }
+        #back{
+            padding: 1px 1px;
+            font-size: 10px;
+          }
+      
+          #save{
+            padding: 1px 1px;
+            font-size: 10px;
+          }
     }
 }

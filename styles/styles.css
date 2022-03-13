@@ -9,7 +9,7 @@
   display: inline-block;
   font-family: sans-serif;
 }
-.header a {
+.header a, .header button {
   text-decoration: none;
   float: right;
   margin: 5px;
@@ -19,7 +19,7 @@
   cursor: pointer;
   font-family: sans-serif;
 }
-.header a:hover {
+.header a:hover, .header button:hover {
   filter: brightness(90%);
 }
 .header #add {
@@ -29,6 +29,91 @@
 .header #delete {
   padding: 8px 16px;
   background-color: #cf2727;
+}
+.header #save {
+  padding: 10px 16px;
+  background-color: #1f66ff;
+}
+.header #back {
+  padding: 8px 16px;
+  background-color: #cf2727;
+}
+
+.group {
+  display: inline-block;
+  flex-direction: column;
+}
+.group label {
+  font-size: 0.9rem;
+}
+.group input {
+  border: 1px solid #ccc;
+  transition: 0.2s;
+  border-radius: 2px;
+  margin: 1rem 0 0.6rem 1rem;
+}
+.group input:focus {
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+.group input:focus:valid {
+  border: 1px solid #0aa80a;
+}
+.group input:focus:invalid {
+  border: 1px solid #cf2727;
+}
+
+.add-product {
+  margin: -13vh 0 0 10vw;
+  letter-spacing: 1px;
+}
+.add-product .form-group {
+  display: inline-block;
+  width: 30%;
+  height: 50px;
+}
+.add-product .form-group .switch label {
+  margin-right: 1em;
+}
+.add-product .form-group .switch .select-product {
+  margin-top: 1em;
+  font-size: 15px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+.add-product .form-group .dvd-input {
+  display: flex;
+  flex-direction: column;
+}
+.add-product .form-group .dvd-input .warning-label {
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin-top: 2rem;
+}
+.add-product .form-group .book-input {
+  display: flex;
+  flex-direction: column;
+}
+.add-product .form-group .book-input .warning-label {
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin: 1rem 0 1rem 0;
+}
+.add-product .form-group .dimensions {
+  display: flex;
+  flex-direction: column;
+}
+.add-product .form-group .dimensions .dimensions-attribute .form-input {
+  width: 70px;
+}
+.add-product .form-group .dimensions .warning-label {
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin: 1rem 0 1rem 0;
+}
+
+#DVD, #Furniture, #Book {
+  display: none;
 }
 
 .footer {
@@ -42,8 +127,7 @@
 .footer p {
   font-size: 12px;
 }
-
-.logo {
+.footer svg {
   width: 2rem;
   height: auto;
   border-radius: 50%;
@@ -52,14 +136,12 @@
   background-color: black;
   -webkit-animation: anime-rotate 10s linear infinite;
           animation: anime-rotate 10s linear infinite;
-  display: block;
-  margin: -1em auto;
+  margin: auto;
 }
-.logo:hover {
+.footer svg:hover {
   background-color: #cf2727;
   border: 1px solid red;
 }
-
 @-webkit-keyframes anime-rotate {
   0% {
     transform: rotate(0deg);
@@ -68,7 +150,6 @@
     transform: rotate(360deg);
   }
 }
-
 @keyframes anime-rotate {
   0% {
     transform: rotate(0deg);
@@ -77,6 +158,7 @@
     transform: rotate(360deg);
   }
 }
+
 /* Media Query: Large Smartphone */
 @media screen and (max-width: 700px) {
   .header {
@@ -86,7 +168,7 @@
   .header h1 {
     font-size: 20px;
   }
-  .header a {
+  .header a, .header button {
     font-size: 20px;
   }
   .header #add {
@@ -94,6 +176,14 @@
     font-size: 10px;
   }
   .header #delete {
+    padding: 1px 1px;
+    font-size: 10px;
+  }
+  .header #back {
+    padding: 1px 1px;
+    font-size: 10px;
+  }
+  .header #save {
     padding: 1px 1px;
     font-size: 10px;
   }
