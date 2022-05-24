@@ -2,7 +2,7 @@
 .header {
   margin: 5vh 10vw 15vh 10vw;
   height: 10vh;
-  border-bottom: 1px solid #b3b3b3;
+  border-bottom: 1px solid rgb(179, 179, 179);
 }
 .header #title {
   margin: 0;
@@ -13,7 +13,7 @@
   text-decoration: none;
   float: right;
   margin: 5px;
-  border: 1px solid #adadad;
+  border: 1px solid rgb(173, 173, 173);
   border-radius: 5px;
   color: white;
   cursor: pointer;
@@ -23,20 +23,20 @@
   filter: brightness(90%);
 }
 .header #add {
-  padding: 8px 12px;
-  background-color: #c4c4c4;
+  padding: 6.5px 14px;
+  background-color: rgb(196, 196, 196);
 }
 .header #delete {
-  padding: 8px 16px;
-  background-color: #cf2727;
+  padding: 8.1px 16px;
+  background-color: rgb(207, 39, 39);
 }
 .header #save {
-  padding: 10px 16px;
-  background-color: #1f66ff;
+  padding: 9.5px 16px;
+  background-color: rgb(31, 102, 255);
 }
 .header #back {
   padding: 8px 16px;
-  background-color: #cf2727;
+  background-color: rgb(207, 39, 39);
 }
 
 .group {
@@ -58,10 +58,10 @@
   transform: scale(1.1);
 }
 .group input:focus:valid {
-  border: 1px solid #0aa80a;
+  border: 1px solid rgb(10, 168, 10);
 }
 .group input:focus:invalid {
-  border: 1px solid #cf2727;
+  border: 1px solid rgb(207, 39, 39);
 }
 
 .add-product {
@@ -116,11 +116,53 @@
   display: none;
 }
 
+.product-preview {
+  width: 90%;
+  margin: -15vh 5vw 0 5vw;
+  justify-content: center;
+  align-items: center;
+}
+.product-preview .preview {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 4rem;
+  border-radius: 0.3em;
+}
+.product-preview .preview .product-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 20px 20px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+  overflow: hidden;
+}
+.product-preview .preview .product-item:hover {
+  transform: scale(1.05);
+}
+.product-preview .preview .product-item .delete-checkbox {
+  margin: 0;
+  cursor: pointer;
+}
+.product-preview .preview .product-item ul {
+  list-style-type: none;
+}
+.product-preview .preview .product-item li {
+  margin-right: 2.3rem;
+  text-align: center;
+}
+
 .footer {
   width: 75%;
   margin: 5vh auto;
   text-align: center;
-  border-top: 1px solid #b3b3b3;
+  border-top: 1px solid rgb(179, 179, 179);
   font-family: "Bebas Neue", cursive, sans-serif;
   letter-spacing: 1.5px;
 }
@@ -139,7 +181,7 @@
   margin: auto;
 }
 .footer svg:hover {
-  background-color: #cf2727;
+  background-color: rgb(207, 39, 39);
   border: 1px solid red;
 }
 @-webkit-keyframes anime-rotate {

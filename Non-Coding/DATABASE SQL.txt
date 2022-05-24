@@ -1,0 +1,12 @@
+CREATE TABLE `products` (
+  `id` INT (11) AUTO_INCREMENT PRIMARY KEY,
+  `sku` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `price` int(11) NOT NULL,
+  `size_mb` int(11) DEFAULT NULL,
+  `weight_kg` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `length` int(11) DEFAULT NULL,
+  `type` varchar(10) DEFAULT NULL
+)

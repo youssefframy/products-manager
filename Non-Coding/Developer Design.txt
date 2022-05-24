@@ -1,0 +1,30 @@
+Project Developer design
+	define a class (use a small name)
+		define properties
+			product's id (sku)
+			name 
+			price
+
+		define a constructor {db parameters}
+
+		define mehtods
+			validation method
+			add products function
+			delete products function
+			setters/getters
+
+		define a class for the database
+			define the properties
+				dbname
+				dbpassword
+				dbuser
+				dbhost
+
+			define the methods
+				connect function {db properties}
+				query function
+				fetch function
+				setters/getters
+
+generate class objects
+use them to some other page {you need to include the function} 

@@ -16,29 +16,28 @@
         float: right;
         margin : 5px;
         border: 1px solid rgb(173, 173, 173);
-        border-radius: 5px ;
+        border-radius: 5px;
         color: white;
         cursor: pointer;
         font-family: sans-serif;
 
-        
         &:hover{
             filter: brightness(90%);
         }
     } 
 
     #add{
-        padding: 8px 12px;
+        padding: 6.5px 14px;
         background-color: rgb(196, 196, 196);
     }
 
     #delete{
-        padding: 8px 16px;
+        padding: 8.1px 16px;
         background-color: rgb(207, 39, 39);
     }
 
     #save{
-        padding: 10px 16px;
+        padding: 9.5px 16px; 
         background-color: rgb(31, 102, 255);
     }
 
@@ -48,6 +47,7 @@
     }
 }
 
+// Add Product Page
 .group{
     display: inline-block;
     flex-direction: column;
@@ -138,12 +138,58 @@
      }
     }
 }
-  
+
 #DVD, #Furniture, #Book{
     display: none;
 }
-  
+// ------------------------------------------------------------------
 
+// Product Preview
+.product-preview {
+      width:90%;
+      margin: -15vh 5vw 0 5vw;
+      justify-content: center;
+      align-items: center;
+      
+      .preview{
+        display: grid;
+        grid-gap: 1.5rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 4rem;
+        border-radius: 0.3em;
+
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid grey;
+            border-radius: 5px;
+            padding: 20px 20px;
+            cursor: pointer;
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: transform 0.25s ease-out;
+            overflow: hidden;
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+            
+            .delete-checkbox {
+                margin: 0;
+                cursor: pointer;
+            }
+            ul{
+                list-style-type: none;
+            }
+            li {
+                margin-right: 2.3rem;
+                text-align: center;
+            }
+        }
+      }
+  }
+// -----------------------------------------------------------------
 .footer{
       width: 75%;
       margin: 5vh auto;
