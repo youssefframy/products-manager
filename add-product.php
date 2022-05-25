@@ -1,11 +1,72 @@
+<?php 
+    require_once('./models/Product.php');
+    require_once('./models/Book.php');
+    require_once('./models/Dvd.php');
+    require_once('./models/Furniture.php');
+    require('./controllers/ProductController.php');
+
+    $productController = new ProductController;
+
+    if(isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && isset($_POST['type'])){
+        if(!empty($_POST['sku']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['type'])){
+            if ($_POST['type'] == 'dvd'){
+                $dvd = new Dvd;
+                $dvd->sku = $_POST['sku'];
+                $dvd->name = $_POST['name'];
+                $dvd->price = $_POST['price'];
+                $dvd->type = $_POST['type'];
+                $dvd->size_mb = $_POST['size'];
+                
+                if($productController->setDvd($dvd)){
+                    header("location:/products-manager");
+                }else{
+                    echo"Something went wrong with adding product";
+                }
+            }
+
+            if ($_POST['type'] == 'book'){
+                $book = new Book;
+                $book->sku = $_POST['sku'];
+                $book->name = $_POST['name'];
+                $book->price = $_POST['price'];
+                $book->type = $_POST['type'];
+                $book->weight_kg = $_POST['weight'];
+                
+                if($productController->setBook($book)){
+                    header("location:/products-manager");
+                }else{
+                    echo"Something went wrong with adding product";
+                }
+            }
+
+            if ($_POST['type'] == 'furniture'){
+                $furniture = new Furniture;
+                $furniture->sku = $_POST['sku'];
+                $furniture->name = $_POST['name'];
+                $furniture->price = $_POST['price'];
+                $furniture->type = $_POST['type'];
+                $furniture->height = $_POST['height'];
+                $furniture->width = $_POST['width'];
+                $furniture->length = $_POST['length'];
+                
+                if($productController->setFurniture($furniture)){
+                    header("location:/products-manager");
+                }else{
+                    echo"Something went wrong with adding product";
+                }
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/ico" href="../assets/favicon.ico">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" type="image/ico" href="./assets/favicon.ico">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Add Product</title>
     <script>
         if (window.history.replaceState) {
@@ -22,7 +83,7 @@
     </div>
     <!-- FORM -->
     <div class="add-product">
-        <form action="../database/addToDb.php" method="post" id="product_form"  class="form-group">
+        <form method="post" id="product_form" class="form-group">
             <div class="group">
               <label for="sku">SKU</label>
               <input type="text" id="sku" name="sku" class="form-input" required/>
@@ -39,8 +100,8 @@
             </div>
             <br>
             <div class="switch">
-              <label for="productType">Type Switcher</label>
-              <select name="productType" class="select-product" id="productType" onchange="typeSwitcher(this)">
+              <label for="type">Type Switcher</label>
+              <select name="type" class="select-product" id="productType" onchange="typeSwitcher(this)">
                   <option value="0" disabled selected></option>
                   <option value="dvd">DVD</option>
                   <option value="book">Book</option>
@@ -83,7 +144,7 @@
     </div>
 
     <!-- FOOTER -->
-    <?php include('../components/footer.php')?>
+    <?php include('./components/footer.php')?>
 </body>
-<script src="../script.js" charset="utf-8"></script>
+<script src="./script.js" charset="utf-8"></script>
 </html>

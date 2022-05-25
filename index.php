@@ -1,4 +1,6 @@
-<?php require_once('./database/config.php')?>
+<?php   
+  require('./controllers/ProductController.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +13,6 @@
 </head>
 <body>
     <!-- PAGE VIEWS -->
-    <?php require('./views/product-preview.php')?>
+        <?php require('./product-preview.php');?>
 </body>
 </html>

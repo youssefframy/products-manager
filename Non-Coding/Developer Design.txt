@@ -8,7 +8,6 @@ Project Developer design
 		define a constructor {db parameters}
 
 		define mehtods
-			validation method
 			add products function
 			delete products function
 			setters/getters

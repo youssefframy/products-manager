@@ -1,7 +1,4 @@
-<?php
-  require('./models/Product.php');
-  require_once('./database/config.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
         <head>
@@ -22,34 +19,34 @@
       <div class="header">
             <h1 id="title">Product List</h1>
             <button type="submit" id="delete" name="deleteBtn">MASS DELETE</button>
-            <a href="views/add-product.php" id="add">ADD</a>
+            <a href="add-product.php" id="add">ADD</a>
         </div>
         <div class="product-preview">
           <div class="preview">
       <?php
-        $Product = new Product();
-        $rows = $Product->getProducts($connection);
-        foreach ($rows as $row){
+        $productController = new ProductController;
+        $products = $productController->getProducts();
+        foreach ($products as $product){
       ?>
              <div class="product-item">
-                <input type="checkbox" class="delete-checkbox" name="checkbox[]" value="<?php echo $row['sku'] ?>" >
+                <input type="checkbox" class="delete-checkbox" name="checkbox[]" value="<?php echo $product['id'] ?>" >
                 <ul>
                 <?php
-                    echo "<li>" . $row['sku'] . "</li>";
-                    echo "<li>" . $row['name'] . "</li>";
-                    echo "<li>" . $row['price']. ".00 $" . "</li>";
+                    echo "<li>" . $product['sku'] . "</li>";
+                    echo "<li>" . $product['name'] . "</li>";
+                    echo "<li>" . $product['price']. ".00 $" . "</li>";
                 ?>
                 <li>
                     <?php
-                    switch($row['type']){
+                    switch($product['type']){
                         case 'dvd':
-                        echo "Size: " . $row['size_mb'] . " MB";
+                        echo "Size: " . $product['size_mb'] . " MB";
                         break;
                         case 'furniture':
-                        echo "Dimension: " . $row['height'] . "x" . $row['width'] . "x" . $row['length'];
+                        echo "Dimension: " . $product['height'] . "x" . $product['width'] . "x" . $product['length'];
                         break;
                         case 'book':
-                        echo "Weight: " . $row['weight_kg'] . " KG";
+                        echo "Weight: " . $product['weight_kg'] . " KG";
                         break;
                     }
                     ?>
@@ -70,13 +67,12 @@
   if (isset($_POST['deleteBtn'])) {
     try {
       $checkBoxes = $_POST['checkbox'];
-      
-        $Product->deleteProducts($conn, $checkBoxes);
-      
-      
+      foreach ($checkBoxes as $checkBox) {
+        $deleteProduct = $productController->deleteProducts($checkBox);
+      }
     } catch (PDOException $error) {
       echo $error->getMessage();
     }
-    header('refresh:0');
+    header("location:/products-manager");
   }
 ?>
