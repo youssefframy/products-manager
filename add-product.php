@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     require_once('./models/Product.php');
     require_once('./models/Book.php');
     require_once('./models/Dvd.php');
@@ -18,7 +19,7 @@
                 $dvd->size_mb = $_POST['size'];
                 
                 if($productController->setDvd($dvd)){
-                    header("location:/products-manager");
+                    header("location:/");
                 }else{
                     echo"Something went wrong with adding product";
                 }
@@ -33,7 +34,7 @@
                 $book->weight_kg = $_POST['weight'];
                 
                 if($productController->setBook($book)){
-                    header("location:/products-manager");
+                    header("location:/");
                 }else{
                     echo"Something went wrong with adding product";
                 }
@@ -50,7 +51,7 @@
                 $furniture->length = $_POST['length'];
                 
                 if($productController->setFurniture($furniture)){
-                    header("location:/products-manager");
+                    header("location:/");
                 }else{
                     echo"Something went wrong with adding product";
                 }
@@ -78,7 +79,7 @@
     <!-- HEADER -->
     <div class="header">
           <h1 id="title">Product Add</h1>
-          <a href="/products-manager/" id="back">CANCEL</a>
+          <a href="/" id="back">CANCEL</a>
           <button type="submit" id="save" form="product_form" value="save">Save</button>
     </div>
     <!-- FORM -->
